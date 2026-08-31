@@ -1,0 +1,52 @@
+name: Build Image
+
+on:
+  push:
+    branches:
+      - main
+
+env:
+  IMAGE_NAME: hello-gitops
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: write
+      packages: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - id: vars
+        run: echo "tag=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
+
+      - uses: docker/build-push-action@v6
+        with:
+          context: .
+          push: true
+          tags: ghcr.io/${{ github.repository_owner }}/hello-gitops:${{ steps.vars.outputs.tag }}
+
+      - name: Update GitOps Repo
+        run: |
+
+          git clone https://${{ secrets.GITOPS_TOKEN }}@github.com/burhanudinnuban/hello-gitops-manifests.git
+
+          cd hello-gitops-manifests
+
+          sed -i "s/tag:.*/tag: ${{
+          steps.vars.outputs.tag }}/" apps/hello/values.yaml
+
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+
+          git add .
+          git commit -m "update image"
+          git push
