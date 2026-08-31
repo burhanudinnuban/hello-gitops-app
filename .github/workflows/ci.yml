@@ -23,7 +23,7 @@ jobs:
         with:
           registry: ghcr.io
           username: ${{ github.actor }}
-          password: ${{ secrets.GITHUB_TOKEN }}
+          password: ${{ secrets.GITAPP_TOKEN }}
 
       - id: vars
         run: echo "tag=$(git rev-parse --short HEAD)" >> $GITHUB_OUTPUT
