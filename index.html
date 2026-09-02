@@ -1,9 +1,195 @@
 <!doctype html>
-<html>
+<html lang="en">
   <head>
-    <title>Codahan GitOps Demo</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevSecOps Platform</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Segoe UI", Arial, sans-serif;
+        background: linear-gradient(135deg, #0f172a, #1e293b);
+        color: white;
+        min-height: 100vh;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 50px 20px;
+      }
+
+      header {
+        text-align: center;
+        margin-bottom: 60px;
+      }
+
+      header h1 {
+        font-size: 3rem;
+        color: #38bdf8;
+        margin-bottom: 10px;
+      }
+
+      header p {
+        color: #cbd5e1;
+        font-size: 1.2rem;
+      }
+
+      .info {
+        display: flex;
+        gap: 20px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .card {
+        background: #1e293b;
+        border: 1px solid #334155;
+        border-radius: 12px;
+        padding: 25px;
+        width: 300px;
+        transition: 0.3s;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        border-color: #38bdf8;
+      }
+
+      .card h2 {
+        color: #38bdf8;
+        margin-bottom: 15px;
+      }
+
+      .card p {
+        color: #cbd5e1;
+        line-height: 1.6;
+      }
+
+      .workflow {
+        margin-top: 60px;
+        text-align: center;
+      }
+
+      .workflow h2 {
+        margin-bottom: 30px;
+        color: #38bdf8;
+      }
+
+      .pipeline {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        font-weight: bold;
+      }
+
+      .step {
+        background: #0ea5e9;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+      }
+
+      .arrow {
+        font-size: 24px;
+      }
+
+      .status {
+        margin-top: 60px;
+        text-align: center;
+        background: #14532d;
+        border: 1px solid #22c55e;
+        padding: 20px;
+        border-radius: 10px;
+      }
+
+      footer {
+        text-align: center;
+        margin-top: 80px;
+        color: #94a3b8;
+      }
+
+      code {
+        color: #22c55e;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hello From Codahan GitOps 2026 & code with fun and im love it</h1>
+    <div class="container">
+      <header>
+        <h1>🚀 DevSecOps Platform</h1>
+        <p>
+          Continuous Integration, GitOps Deployment, Kubernetes Automation, and
+          Cloud Native Security with ArgoCD.
+        </p>
+      </header>
+
+      <section class="info">
+        <div class="card">
+          <h2>Kubernetes</h2>
+          <p>
+            Container orchestration platform used to deploy, scale, and manage
+            cloud-native applications.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>ArgoCD</h2>
+          <p>
+            GitOps continuous delivery tool that synchronizes Kubernetes
+            workloads directly from Git repositories.
+          </p>
+        </div>
+
+        <div class="card">
+          <h2>DevSecOps</h2>
+          <p>
+            Security integrated into CI/CD pipelines with automated scanning,
+            compliance, and deployment controls.
+          </p>
+        </div>
+      </section>
+
+      <section class="workflow">
+        <h2>GitOps Workflow</h2>
+
+        <div class="pipeline">
+          <div class="step">Developer</div>
+          <div class="arrow">→</div>
+          <div class="step">GitHub</div>
+          <div class="arrow">→</div>
+          <div class="step">GitHub Actions</div>
+          <div class="arrow">→</div>
+          <div class="step">GHCR</div>
+          <div class="arrow">→</div>
+          <div class="step">ArgoCD</div>
+          <div class="arrow">→</div>
+          <div class="step">Kubernetes</div>
+        </div>
+      </section>
+
+      <section class="status">
+        <h2>✅ Deployment Status</h2>
+        <p style="margin-top: 10px">
+          Application successfully deployed using
+          <code>GitOps + ArgoCD + Kubernetes</code>
+        </p>
+      </section>
+
+      <footer>
+        <p>
+          Powered by Kubernetes, ArgoCD, GitHub Actions, Ingress NGINX, Cert
+          Manager, and Let's Encrypt
+        </p>
+      </footer>
+    </div>
   </body>
 </html>
