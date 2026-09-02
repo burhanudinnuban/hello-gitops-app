@@ -34,7 +34,7 @@ jobs:
           push: true
           tags: |
             ghcr.io/burhanudinnuban/hello-gitops:latest
-            ghcr.io/burhanudinnuban/hello-gitops:${{ github.sha }}
+            ghcr.io/burhanudinnuban/hello-gitops:${{ steps.vars.outputs.tag }}
 
       - name: Update GitOps Repo
         run: |
