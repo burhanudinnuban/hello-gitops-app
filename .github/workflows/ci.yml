@@ -63,3 +63,10 @@ jobs:
           git add .
           git commit -m "Update image to ${{ steps.vars.outputs.tag }}"
           git push
+
+      - name: Delete old images
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: hello-gitops
+          package-type: container
+          min-versions-to-keep: 2
